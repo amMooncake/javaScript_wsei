@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Project</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="images">
+          <div class="transY">
+            <img alt="img1" src="https://picsum.photos/400/600?random=1" width="100" class="stacked-image">
+
+          </div>
+          <div class="transY">
+            <img alt="img2" src="https://picsum.photos/400/600?random=2" width="100" class="stacked-image">
+
+          </div>
+          <div class="transY">
+            <img alt="img3" src="https://picsum.photos/400/600?random=3" width="100" class="stacked-image">
+
+          </div>
+          <div class="transY">
+            <img alt="img4" src="https://picsum.photos/400/600?random=4" width="100" class="stacked-image">
+
+          </div>
+          <div class="transY">
+            <img alt="img5" src="https://picsum.photos/400/600?random=5" width="100" class="stacked-image">
+          </div>
+          <div class="transY">
+            <img alt="img6" src="https://picsum.photos/400/600?random=6" width="100" class="stacked-image">
+          </div>
+          <div class="transY">
+            <img alt="img7" src="https://picsum.photos/400/600?random=7" width="100" class="stacked-image">
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <script src="script.js"></script>
+
+    <script type="text/javascript">
+     
+      
+      
+    </script>
+
+    <script type="text/javascript">
+      const pictures = document.querySelectorAll('img')
+      const IWWM = pictures[0].width + 10 // image width with margin]
+      middle = Math.floor(pictures.length / 2)
+      let last = pictures.length - 1
+      let transforms = []
+      
+
+      pictures.forEach((pic,index) => {
+        pic.addEventListener('click', () => {
+          changeColor();
+          movePictures();  
+        })
+      })
+
+      
+      pictures.forEach((pic,index) => {
+        transforms[index] = (index - middle) * IWWM
+        pictures[index].style.transform = `translateX(${transforms[index]}px)`
+
+
+        pic.style.transition = "filter 0.5s ease";
+
+        console.log((index - middle))
+        if(middle != index)
+          pic.style.filter = "grayscale(100%)"
+      });
+
+      setInterval(()=>{
+        changeColor();
+        movePictures();
+      }, 2500);
+      
+      function changeColor(){
+        pictures[middle].style.transition = "transform 1s cubic-bezier(0.5, 0, 0.5, 1)";
+        pictures[middle].style.filter = "grayscale(100%)"
+        if(middle == 0){
+          middle = pictures.length - 1;
+        }else{
+          middle--;
+        } 
+        pictures[middle].style.filter = "grayscale(0%)"
+      }
+
+
+      function movePictures() {
+        const viewportWidth = document.documentElement.clientWidth;
+        pictures.forEach((pic,index) => {
+          if(index == last){
+            pic.style.transition = "transform 0.5s cubic-bezier(0.5 ,0 ,1 ,0.5)";
+            transforms[index] = transforms[index] + viewportWidth - (pictures.length - 0.5)*IWWM
+            pic.style.transform = `translateX(${transforms[index]}px)`;
+            setTimeout(()=>{
+
+              pic.style.transition = `none`;
+              transforms[index] = - transforms[index]- viewportWidth +(pictures.length - 0.5)*IWWM
+              pic.style.transform = `translateX(${transforms[index]}px)`;
+              console.log(transforms)
+              setTimeout(()=>{
+                pic.style.transition = "transform 0.5s cubic-bezier(.5,.5,.5,1)";
+                transforms[index] = - pictures.length/2 * IWWM +55
+                pic.style.transform = `translateX(${transforms[index]}px)`;
+              }, 500);
+              
+             
+            }, 500);
+            
+          }else{
+            transforms[index] += IWWM;
+            pic.style.transition = "transform 1s cubic-bezier(0.5 ,0 ,0.5 ,1)";
+            pic.style.transform = `translateX(${transforms[index]}px)`;
+
+          }
+        });
+
+        if(last == 0){
+          last = pictures.length - 1;
+          
+        }else{
+          last--;
+        }
+        
+      }
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Project</title>
+  </head>
+  <body>
+    <div id="inputsDiv">
+      <input type="number">
+    </div>
+    
+    <button id="add">dodaj</button>
+    <button id="calculate">Przelicz</button>
+    <div id="min">minimum: 0</div>
+    <div id="max">maximum: 0</div>
+    <div id="avg">average: 0</div>
+    <div id="sum">sum: 0</div>
+
+
+    <!-- <script src="script.js"></script> -->
+    <script type="text/javascript">
+        let  input = document.querySelectorAll('input');
+        function changeInputs(){
+          input.forEach(el => {
+            el.addEventListener('input', () => {
+              changeValues();
+            });
+          });
+        }
+        
+        changeInputs();
+
+        const minContainer = document.querySelector('#min');
+        const maxContainer = document.querySelector('#max');
+        const avgContainer = document.querySelector('#avg');
+        const sumContainer = document.querySelector('#sum');
+        
+        function changeValues() {
+          const minValue = Math.min(...Array.from(input).map(el => el.value));
+          minContainer.innerHTML = `minimum: ${minValue}`;
+
+          const maxValue = Math.max(...Array.from(input).map(el => el.value));
+          maxContainer.innerHTML = `maximum: ${maxValue}`;
+
+          let sum = 0;
+          Array.from(input).forEach(el => sum += parseInt(el.value));
+          console.log(sum)
+          sumContainer.innerHTML = `sum: ${sum}`;
+
+          let average = sum / input.length;
+          avgContainer.innerHTML = `average: ${average}`;
+
+          console.log(minValue);
+        }
+
+        document.querySelector('#calculate').addEventListener('click', () => {
+          changeValues();
+        });
+
+        document.querySelector('#add').addEventListener('click', () => {
+          const newInput = document.createElement('input');
+          newInput.type = 'number';
+          document.querySelector('#inputsDiv').appendChild(newInput);
+
+        
+          input = document.querySelectorAll('input');
+          changeInputs();
+        });
+
+
+        
+        // mainContainer.innerHTML = '<h1>Hi!</h1>'; // niebezpiecznie względem skryptów
+        // mainContainer.textContent = '<h1>Hi!</h1>';
+
+
+
+
+    </script>
+
+  </body>
+</html>

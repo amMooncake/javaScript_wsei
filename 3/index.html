@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Drumkit</title>
+  </head>
+  <body>
+
+    <audio src="./sounds/boom.wav" controls data-key="a" id="s1" ></audio>
+    <audio src="./sounds/clap.wav" controls data-key="s" id="s2"></audio>
+    <audio src="./sounds/hihat.wav" controls data-key="d" id="s3"></audio>
+    <audio src="./sounds/kick.wav" controls data-key="f" id="s4"></audio>
+    <audio src="./sounds/openhat.wav" controls data-key="g" id="s5"></audio>
+    <audio src="./sounds/ride.wav" controls data-key="h" id="s6"></audio>
+    <audio src="./sounds/snare.wav" controls data-key="j" id="s7"></audio>
+    <audio src="./sounds/tink.wav" controls data-key="k" id="s8"></audio>
+    <audio src="./sounds/tom.wav" controls data-key="l" id="s9"></audio>
+    
+
+    <div class="buttons">
+      <div class="icons">
+        <button id="chanel1" class="record" ><i class="fa-solid fa-record-vinyl"></i></button>
+        <button id="chanel1" class="play-button"><i class="fas fa-play"></i></button>
+      </div>
+    </div>
+    <button class="add"><i class="fa-solid fa-add"></i></button>
+    <script src="script.js"></script>
+    
+  </body>
+</html>
