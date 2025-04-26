@@ -81,14 +81,12 @@ function removeNote(noteToRemove, noteDiv) {
 
 
   function togglePinNote(noteToToggle, noteDiv) {
-    noteToToggle.pinNote = !noteToToggle.pinNote; // Toggle the pinNote property
+    noteToToggle.pinNote = !noteToToggle.pinNote;
     localStorage.setItem("notes", JSON.stringify(notes)); // Update local storage
   
-    // Move the note to the appropriate container
     const targetContainer = noteToToggle.pinNote ? pinNotesContainer : notesContainer;
     targetContainer.appendChild(noteDiv);
   
-    // Update the button text
     const pinButton = noteDiv.querySelector(".pin-button");
     pinButton.textContent = noteToToggle.pinNote ? "Unpin" : "Pin";
   }
