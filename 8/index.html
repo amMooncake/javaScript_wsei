@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Project</title>
+    <style>
+      .resetBtn .reset path {
+        stroke: #fff;
+        stroke-width: 2.5;
+        fill: none;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    
+    <div class="buttons">
+      <button class="startBtn">
+        <span class="icon" aria-label="Play/Pause">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <g class="play">
+              <polygon points="6,4 16,10 6,16"></polygon>
+            </g>
+          </svg>
+        </span>
+      </button>
+
+      
+      <button class="resetBtn" aria-label="Reset">
+        <span class="icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <g class="reset">
+              <path d="M10 3a7 7 0 1 1-7 7H1.5a.5.5 0 0 1-.35-.85l2.5-2.5a.5.5 0 0 1 .7 0l2.5 2.5A.5.5 0 0 1 6.5 10H4a6 6 0 1 0 6-6V3z"/>
+            </g>
+          </svg>
+        </span>
+      </button></g>
+    </div>
+
+
+    <div class="frames-info">
+      FPS: 0
+    </div>
+
+    
+    <div class="inputs">
+      <input class="noOfCircles" type="text" placeholder="number of circles" />
+      <input class="numDistance" type="text" placeholder="distance" />
+    </div>
+
+
+
+
+
+    <canvas class="canvas"></canvas>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>
