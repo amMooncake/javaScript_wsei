@@ -7,10 +7,152 @@
 body {
   font-family: 'Roboto', sans-serif;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
+  background-color: #a3cbf2;
+}
+
+.weatherInfo{
+  display: flex;
+  flex-direction: row;
+}
+
+.citiesContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.weather-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin: 5px;
+}
+
+.weather-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.weather-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+.weather-card img {
+  width: 100px;
+  height: 100px;
+  margin: 10px 0;
+}
+
+.weather-card .temperature {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff5722;
+}
+
+
+
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.forecast-day {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.forecast-day img {
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+}
+
+.forecast-day p {
+  margin: 5px 0;
+  color: #555;
+}
+
+
+
+/* delete button */
+.delete-btn {
+  margin-top: 15px;
+  padding: 8px 18px;
+  background-color: #ff5252;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(255, 82, 82, 0.1);
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* input style */
+
+.input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cityInput {
+  padding: 10px 16px;
+  border: 1.5px solid #90caf9;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #f5faff;
+  color: #333;
+  margin: 20px;
+}
+
+.cityInput:focus {
+  border: 1.5px solid #1976d2;
+  background: #e3f2fd;
+}
+
+.addCityBtn {
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.08);
+}
+
+.addCityBtn:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px) scale(1.04);
 }
