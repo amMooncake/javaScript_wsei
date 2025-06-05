@@ -54,12 +54,14 @@
       middle = Math.floor(pictures.length / 2)
       let last = pictures.length - 1
       let transforms = []
+      let moving = false;
       
 
       pictures.forEach((pic,index) => {
         pic.addEventListener('click', () => {
           changeColor();
           movePictures();  
+          moving = true;
         })
       })
 
@@ -77,8 +79,14 @@
       });
 
       setInterval(()=>{
-        changeColor();
-        movePictures();
+        if(moving){
+          moving = false;
+          return;
+        }
+        else{
+          changeColor();
+          movePictures();
+        }
       }, 2500);
       
       function changeColor(){
@@ -101,9 +109,8 @@
             transforms[index] = transforms[index] + viewportWidth - (pictures.length - 0.5)*IWWM
             pic.style.transform = `translateX(${transforms[index]}px)`;
             setTimeout(()=>{
-
               pic.style.transition = `none`;
-              transforms[index] = - transforms[index]- viewportWidth +(pictures.length - 0.5)*IWWM
+              transforms[index] = - transforms[index]- viewportWidth + (pictures.length - 0.5)*IWWM
               pic.style.transform = `translateX(${transforms[index]}px)`;
               console.log(transforms)
               setTimeout(()=>{
@@ -111,25 +118,18 @@
                 transforms[index] = - pictures.length/2 * IWWM +55
                 pic.style.transform = `translateX(${transforms[index]}px)`;
               }, 500);
-              
-             
             }, 500);
-            
           }else{
             transforms[index] += IWWM;
             pic.style.transition = "transform 1s cubic-bezier(0.5 ,0 ,0.5 ,1)";
             pic.style.transform = `translateX(${transforms[index]}px)`;
-
           }
         });
-
         if(last == 0){
           last = pictures.length - 1;
-          
         }else{
           last--;
         }
-        
       }
 
 

@@ -1,3 +1,7 @@
+// I used this video
+// https://www.youtube.com/watch?v=qwi2Gb6QCDo
+
+
 const state = document.querySelector('.state')
 const scoreDiv = document.querySelector('.score')
 let score = 0
@@ -137,8 +141,8 @@ function handlerOrientation(event) {
 
 
 document.querySelector('.startAnimation').addEventListener('click', () => {
-    h.y = 0
-    h.x = 0
+    h.x = Math.floor(Math.random() * (300 - h.w));
+    h.y = Math.floor(Math.random() * (500 - h.h));
     b.y = 230
     b.x = 130
 

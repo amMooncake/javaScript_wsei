@@ -1,7 +1,7 @@
 const sound = document.querySelectorAll('audio')
 let currentChannel = ''
 let nextChanel = 2
-
+let recordingStates = {};
 
 // becouse when I was programming I also was watching tv series :D
 sound.forEach(element => {
@@ -44,13 +44,22 @@ document.addEventListener('keypress',(ev)=>{
 //select record chanels
 function recordSounds(){
     document.querySelectorAll('.record').forEach(e => {
-        
-        console.log(chanels)
-        console.log(e.id)
-        e.addEventListener('click',(element)=>{
-            chanels[e.id] = []
-            currentChannel = `${e.id}`
-        })
+        const newButton = e.cloneNode(true);
+        e.parentNode.replaceChild(newButton, e);
+
+        newButton.addEventListener('click', () => {
+            const channelId = newButton.id;
+            if (currentChannel === channelId) {
+                currentChannel = '';
+                newButton.classList.remove('recording');
+            } else {
+                // Start recording
+                chanels[channelId] = [];
+                currentChannel = channelId;
+                document.querySelectorAll('.record').forEach(btn => btn.classList.remove('recording'));
+                newButton.classList.add('recording');
+            }
+        });
     });
 }
 
@@ -62,10 +71,8 @@ recordSounds()
 function playSounds(){
     document.querySelectorAll('.play-button').forEach(e => {
         e.addEventListener('click',(element)=>{
-            console.log(chanels[e.id])
 
             let startTime = chanels[e.id][0].time
-            console.log(startTime)
             chanels[e.id].forEach(sound => {
                 const key = sound.key
                 const time = sound.time - startTime
@@ -78,6 +85,8 @@ function playSounds(){
         })
     })
 }
+
+ playSounds()
 
 
 //adding new record chanel

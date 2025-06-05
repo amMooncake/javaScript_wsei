@@ -12,7 +12,7 @@
     </div>
     
     <button id="add">dodaj</button>
-    <button id="calculate">Przelicz</button>
+    <!-- <button id="calculate">Przelicz</button> -->
     <div id="min">minimum: 0</div>
     <div id="max">maximum: 0</div>
     <div id="avg">average: 0</div>
@@ -21,7 +21,7 @@
 
     <!-- <script src="script.js"></script> -->
     <script type="text/javascript">
-        let  input = document.querySelectorAll('input');
+        let input = document.querySelectorAll('input');
         function changeInputs(){
           input.forEach(el => {
             el.addEventListener('input', () => {
@@ -45,7 +45,7 @@
           maxContainer.innerHTML = `maximum: ${maxValue}`;
 
           let sum = 0;
-          Array.from(input).forEach(el => sum += parseInt(el.value));
+          Array.from(input).forEach(el => sum += parseFloat(el.value));
           console.log(sum)
           sumContainer.innerHTML = `sum: ${sum}`;
 
@@ -55,16 +55,15 @@
           console.log(minValue);
         }
 
-        document.querySelector('#calculate').addEventListener('click', () => {
-          changeValues();
-        });
+        // document.querySelector('#calculate').addEventListener('click', () => {
+        //   changeValues();
+        // });
 
         document.querySelector('#add').addEventListener('click', () => {
           const newInput = document.createElement('input');
           newInput.type = 'number';
           document.querySelector('#inputsDiv').appendChild(newInput);
 
-        
           input = document.querySelectorAll('input');
           changeInputs();
         });

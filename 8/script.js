@@ -25,7 +25,7 @@ function generateRandomCircles(){
             y: Math.random() * canvas.height,
             vx: (Math.random() - 0.5) * 1.5,
             vy: (Math.random() - 0.5) * 1.5,
-            radius: 6 + Math.random() * 8,
+            radius: 6 + Math.random() * 10,
         });
     } 
 }

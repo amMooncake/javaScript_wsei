@@ -18,9 +18,9 @@ body {
 
 .images {
   position: relative;
-  
-  width: 100px;  /* Match your image width */
-  height: 150px; /* Match your image height */
+
+  width: 100px;
+  height: 150px;
   margin: 0 auto;
 }
 

@@ -26,6 +26,8 @@ const asyncAddmultiple = async (...numbers) => {
 
 
 
+
+
 performance.mark('asyncAdd100Start')
 let asyncAddPromises = []
 for (let i = 0; i < 100; i += 2) {

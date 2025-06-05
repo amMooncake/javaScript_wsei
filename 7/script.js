@@ -1,4 +1,5 @@
-const APIKEY = '5a9402ecf95431ad0f74a4f7d3caeb6b';
+const APIKEY = '5a9402ecf95431ad0f74a4f7d3caeb6b'; // :)
+
 const addCityBtn = document.querySelector('.addCityBtn')
 const cityInput = document.querySelector('.cityInput')
 const weatherInfo = document.querySelector('.weatherInfo')
@@ -53,11 +54,11 @@ function addCity(){
     return response.json();
   }).then(data => {
     console.log('Geo data:', data);
-    //getting lot and lon 
 
+    //getting lot and lon 
     const exclude = 'minutely'
     const weatherApiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=${exclude}&units=metric&appid=${APIKEY}`
-    
+    console.log('Weather API URL:', weatherApiUrl);
     fetch(weatherApiUrl).then(response => {
       if (!response.ok) {throw new Error(`HTTP error! status: ${response.status}`)}
       return response.json();
@@ -85,8 +86,6 @@ function addCity(){
       updateUi()
       saveMyCities();
       cityInput.value = '';
-
-
 
     }).catch(error => {
       console.error('Error fetching weather data:', error);
@@ -170,7 +169,6 @@ function updateUi() {
 
 
 function refreshAllCitiesWeather() {
-  // Use a copy of myCities to avoid mutation issues during update
   const citiesToUpdate = [...myCities];
   myCities = [];
   let updatedCount = 0;
@@ -216,12 +214,9 @@ function refreshAllCitiesWeather() {
       });
   });
 
-  // If no cities, just update UI
-  if (citiesToUpdate.length === 0) {
-    updateUi();
-    saveMyCities();
-  }
+
 }
 
 // Refresh weather every 5 minutes (300000 ms)
 setInterval(refreshAllCitiesWeather, 300000);
+

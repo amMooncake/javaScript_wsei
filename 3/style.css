@@ -28,10 +28,92 @@ div{
   align-items: center;
   margin-top: 20px;
 }
-
-
-
-.add {
-  margin-top: 20px;
+.record {
+  background: #fff;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.record.recording {
+  background: #e74c3c;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(231, 76, 60, 0.18);
+  border: 2px solid #c0392b;
+}
+
+.add {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 30px;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.add:hover {
+  background: #219150;
+  box-shadow: 0 4px 16px rgba(39, 174, 96, 0.18);
+}
+
+/* Optional: style play button for consistency */
+.play-button {
+  background: #fff;
+  border: 2px solid #2980b9;
+  color: #2980b9;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(41, 128, 185, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button:hover {
+  background: #2980b9;
+  color: #fff;
+}
+
+
+audio {
+  width: 60px;
+  height: 24px;
+  opacity: 1;
+  position: static;
+  pointer-events: auto;
+  margin: 2px 4px;
+  display: inline-block;
+}
+
+
+.audio-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
